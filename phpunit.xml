@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         syntaxCheck="false"
+         bootstrap="vendor/autoload.php"
+>
+    
+    <php>
+        <var name="DEMO_DATABASE_USER" value="icomefromthenet"/>
+        <var name="DEMO_DATABASE_PASSWORD" value=""/>
+        <var name="DEMO_DATABASE_SCHEMA" value="c9"/>
+        <var name="DEMO_DATABASE_PORT" value="3306"/>
+        <var name="DEMO_DATABASE_HOST" value="172.17.41.61"/>
+        <var name="DEMO_DATABASE_TYPE" value="pdo_mysql"/>
+    </php>
+
+    <testsuites>
+    
+        
+        <testsuite name="Setup">
+            <directory suffix="Test.php">src/Test/</directory>
+            <exclude>src/Tests/Base/</exclude>
+            <groups>
+                <include><group>Setup</group></include>
+                <exclude><group>Booking</group></exclude>
+                <exclude><group>Rollover</group></exclude>
+                <exclude><group>Rule</group></exclude>
+                <exclude><group>Management</group></exclude>
+            </groups>
+        </testsuite> 
+        
+  
+        
+        <testsuite name="Rule">
+            <directory suffix="Test.php">src/Test/</directory>
+            <exclude>src/Tests/Base/</exclude>
+            <groups>
+                <include><group>Rule</group></include>
+                <exclude><group>Setup</group></exclude>
+                <exclude><group>Rollover</group></exclude>
+                <exclude><group>Booking</group></exclude>
+                <exclude><group>Management</group></exclude>
+            </groups>
+        </testsuite>
+
+
+
+
+        <testsuite name="Management">
+            <directory suffix="Test.php">src/Test/</directory>
+            <exclude>src/Tests/Base/</exclude>
+            <groups>
+                <include><group>Management</group></include>
+                <exclude><group>Setup</group></exclude>
+                <exclude><group>Rollover</group></exclude>
+                <exclude><group>Booking</group></exclude>
+                <exclude><group>Rule</group></exclude>
+            </groups>
+        </testsuite>
+  
+  
+  
+        
+        <testsuite name="Booking">
+            <directory suffix="Test.php">src/Test/</directory>
+            <exclude>src/Tests/Base/</exclude>
+            <groups>
+                <include><group>Booking</group></include>
+                <exclude><group>Setup</group></exclude>
+                <exclude><group>Rollover</group></exclude>
+                <exclude><group>Rule</group></exclude>
+                <exclude><group>Management</group></exclude>
+            </groups>
+        </testsuite>
+   
+   
+
+ 
+     
+        <testsuite name="Rollover">
+            <directory suffix="Test.php">src/Test/</directory>
+            <exclude>src/Tests/Base/</exclude>
+            <groups>
+                <include><group>Rollover</group></include>
+                <exclude><group>Setup</group></exclude>
+                <exclude><group>Booking</group></exclude>
+                <exclude><group>Rule</group></exclude>
+                <exclude><group>Management</group></exclude>
+            </groups>
+        </testsuite>
+        
+  </testsuites>  
+    
+</phpunit>
